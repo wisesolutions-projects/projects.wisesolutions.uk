@@ -21,3 +21,5 @@ Repositório principal para gerenciar projetos em `projects.wisesolutions.uk`.
 ## Deploy
 
 GitHub Actions automático via GitHub Pages com domínio customizado `projects.wisesolutions.uk`.
+
+Deploy ativo: ✅
