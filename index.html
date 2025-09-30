@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Wise Solutions</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: white;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .project-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .project-description {
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        .project-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+        }
+        .project-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+        .coming-soon {
+            opacity: 0.6;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Projects</h1>
+        <p class="subtitle">Wise Solutions - Projetos e Aplicações</p>
+
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3 class="project-title">🍼 Chá de Bebê</h3>
+                <p class="project-description">Landing page interativa para chá de bebê do Baby Monteiro Delboni com sistema de presentes.</p>
+                <a href="/cha-de-bebe/" class="project-link">Acessar Projeto</a>
+            </div>
+
+            <div class="project-card coming-soon">
+                <h3 class="project-title">📊 Portfolio</h3>
+                <p class="project-description">Em breve - Portfólio profissional com projetos e experiências.</p>
+                <span class="project-link" style="opacity: 0.5;">Em Desenvolvimento</span>
+            </div>
+
+            <div class="project-card coming-soon">
+                <h3 class="project-title">🎯 Dashboard</h3>
+                <p class="project-description">Em breve - Dashboard administrativo para gerenciamento de projetos.</p>
+                <span class="project-link" style="opacity: 0.5;">Em Desenvolvimento</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Redirecionamento automático para subprojetos
+        const path = window.location.pathname;
+
+        if (path === '/cha-de-bebe/' || path === '/cha-de-bebe') {
+            window.location.href = 'https://wisesolutions-projects.github.io/cha-de-bebe/';
+        }
+    </script>
+</body>
+</html>
