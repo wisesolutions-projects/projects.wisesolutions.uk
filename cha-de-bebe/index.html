@@ -7,43 +7,147 @@
     <meta name="description" content="Chá de bebê do Baby Monteiro Delboni - 16/11 às 14h">
     <link rel="canonical" href="https://projects.wisesolutions.uk/cha-de-bebe/">
     <style>
-        * {
+        body {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            font-family: system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            overflow-x: hidden;
         }
-        html, body {
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100vw;
-            height: 100vh;
-            border: none;
-            display: block;
+        .proxy-container {
+            min-height: 100vh;
+            position: relative;
         }
         .loading {
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #667eea;
+            text-align: center;
             z-index: 1000;
-            font-size: 1.2rem;
         }
-        .loading.hidden {
-            display: none;
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(255,255,255,0.3);
+            border-top: 4px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .content {
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .content.loaded {
+            opacity: 1;
+        }
+        .error {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,0,0,0.1);
+            border: 1px solid rgba(255,0,0,0.3);
+            border-radius: 8px;
+            margin: 2rem;
+        }
+        .fallback-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        .fallback-link:hover {
+            background: rgba(255,255,255,0.3);
         }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">🍼 Carregando Chá de Bebê...</div>
-    <iframe
-        src="https://wisesolutions-projects.github.io/cha-de-bebe/"
-        title="Chá de Bebê - Baby Monteiro Delboni"
-        allowfullscreen
-        onload="document.getElementById('loading').classList.add('hidden')">
-    </iframe>
+    <div class="proxy-container">
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <h2>🍼 Carregando Chá de Bebê</h2>
+            <p>Preparando a celebração...</p>
+        </div>
+
+        <div class="content" id="content">
+            <!-- Conteúdo será carregado aqui -->
+        </div>
+    </div>
+
+    <script>
+        async function loadBabyShower() {
+            try {
+                // Mostra loading
+                document.getElementById('loading').style.display = 'block';
+
+                // Simula carregamento por 2 segundos para UX
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                // Esconde loading
+                document.getElementById('loading').style.display = 'none';
+
+                // Carrega conteúdo via iframe (fallback seguro)
+                const content = document.getElementById('content');
+                content.innerHTML = `
+                    <iframe
+                        src="https://wisesolutions-projects.github.io/cha-de-bebe/"
+                        style="width: 100vw; height: 100vh; border: none; display: block;"
+                        title="Chá de Bebê - Baby Monteiro Delboni"
+                        allowfullscreen>
+                    </iframe>
+                `;
+
+                content.classList.add('loaded');
+
+            } catch (error) {
+                console.error('Erro ao carregar:', error);
+                document.getElementById('loading').style.display = 'none';
+
+                document.getElementById('content').innerHTML = `
+                    <div class="error">
+                        <h2>🍼 Chá de Bebê</h2>
+                        <p>Ops! Vamos te levar para a celebração...</p>
+                        <a href="https://wisesolutions-projects.github.io/cha-de-bebe/" class="fallback-link">
+                            Acessar Chá de Bebê
+                        </a>
+                    </div>
+                `;
+
+                document.getElementById('content').classList.add('loaded');
+
+                // Fallback redirect após 5 segundos
+                setTimeout(() => {
+                    window.location.href = 'https://wisesolutions-projects.github.io/cha-de-bebe/';
+                }, 5000);
+            }
+        }
+
+        // Inicia carregamento quando página carrega
+        window.addEventListener('load', loadBabyShower);
+
+        // Fallback se não carregar em 10 segundos
+        setTimeout(() => {
+            if (document.getElementById('loading').style.display !== 'none') {
+                window.location.href = 'https://wisesolutions-projects.github.io/cha-de-bebe/';
+            }
+        }, 10000);
+    </script>
+
+    <!-- Metadata para SEO -->
+    <meta property="og:title" content="Chá de Bebê - Baby Monteiro Delboni">
+    <meta property="og:description" content="Celebre conosco o chá de bebê do Baby Monteiro Delboni - 16/11 às 14h">
+    <meta property="og:url" content="https://projects.wisesolutions.uk/cha-de-bebe/">
+
+    <!-- Cache breaker final -->
+    <!-- TIMESTAMP: 2025-09-30-FINAL-v4 -->
 </body>
 </html>
