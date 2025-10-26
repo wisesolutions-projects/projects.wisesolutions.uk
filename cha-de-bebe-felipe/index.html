@@ -3,9 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chá de Bebê - Baby Felipe</title>
-    <meta name="description" content="Chá de bebê do Baby Felipe - 16/11 às 14h">
+
+    <!-- SEO Meta Tags -->
+    <title>Chá de Bebê - Baby Monteiro Delboni 👶🏻</title>
+    <meta name="description" content="Você está convidado para o chá de bebê do Baby Monteiro Delboni! 👶🏻 Descubra o que você vai trazer. 16/11 às 14h no Condomínio San Filippo.">
+
+    <!-- Open Graph Meta Tags for WhatsApp/Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Chá de Bebê - Baby Monteiro Delboni 👶🏻">
+    <meta property="og:description" content="Você está convidado para o chá de bebê! Descubra o que você vai trazer. 16/11 às 14h.">
+    <meta property="og:url" content="https://projects.wisesolutions.uk/cha-de-bebe-felipe/">
+    <meta property="og:site_name" content="Chá de Bebê">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:image" content="https://wisesolutions-projects.github.io/cha-de-bebe-felipe/og-image.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Chá de Bebê - Baby Monteiro Delboni">
+
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chá de Bebê - Baby Monteiro Delboni 👶🏻">
+    <meta name="twitter:description" content="Você está convidado para o chá de bebê! Descubra o que você vai trazer. 16/11 às 14h.">
+    <meta name="twitter:image" content="https://wisesolutions-projects.github.io/cha-de-bebe-felipe/og-image.png">
+
     <link rel="canonical" href="https://projects.wisesolutions.uk/cha-de-bebe-felipe/">
+
     <style>
         * {
             margin: 0;
@@ -27,16 +50,18 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            color: #667eea;
-            z-index: 1000;
             text-align: center;
+            font-family: system-ui, -apple-system, sans-serif;
+            color: #5A8CA3;
+        }
+        .loading.hidden {
+            display: none;
         }
         .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(102, 126, 234, 0.3);
-            border-top: 4px solid #667eea;
+            width: 50px;
+            height: 50px;
+            border: 4px solid rgba(90, 140, 163, 0.3);
+            border-top: 4px solid #5A8CA3;
             border-radius: 50%;
             animation: spin 1s linear infinite;
             margin: 0 auto 1rem;
@@ -45,23 +70,17 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        .loading.hidden {
-            display: none;
-        }
     </style>
 </head>
 <body>
     <div class="loading" id="loading">
         <div class="spinner"></div>
         <h2>🍼 Carregando Chá de Bebê</h2>
-        <p>URL: projects.wisesolutions.uk/cha-de-bebe-felipe/</p>
     </div>
-
     <iframe
         src="https://wisesolutions-projects.github.io/cha-de-bebe-felipe/"
-        title="Chá de Bebê - Baby Felipe"
-        allowfullscreen
-        onload="document.getElementById('loading').classList.add('hidden')">
+        onload="document.getElementById('loading').classList.add('hidden')"
+        title="Chá de Bebê - Baby Monteiro Delboni">
     </iframe>
 </body>
 </html>
